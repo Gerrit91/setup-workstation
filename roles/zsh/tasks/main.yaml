@@ -1,0 +1,42 @@
+---
+- name: Make font dir
+  file:
+    path: "~/.fonts"
+    state: directory
+
+- name: Setup fonts
+  get_url:
+    url: "{{ item }}"
+    dest: "~/.fonts"
+    mode: '0755'
+  loop:
+    - https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+    - https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+    - https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+    - https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+
+- import_role:
+    name: gantsign.oh-my-zsh
+  vars:
+    users:
+      - username: "{{ ansible_user_id }}"
+
+- name: Clone powerlevel10k theme
+  ansible.builtin.git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: "~/powerlevel10k"
+    depth: 1
+
+- name: Put powerlevel10k configuration
+  copy:
+    src: .p10k.zsh
+    dest: "~/.p10k.zsh"
+
+- name: Put .zshrc
+  template:
+    src: ".zshrc"
+    dest: "~/.zshrc"
+
+- name: Make zsh default shell
+  become: true
+  shell: chsh -s $(which zsh) {{ ansible_user_id }}

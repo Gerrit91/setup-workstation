@@ -1,0 +1,36 @@
+---
+packages:
+  - bridge-utils
+  - build-essential
+  - curl
+  - dconf-editor
+  - git
+  - libvirt-daemon
+  - libvirt-dev
+  - ovmf
+  - qemu
+  - qemu-kvm
+  - tmux
+  - vim
+  - virtinst
+  - virt-manager
+  - wget
+
+debian_packages:
+  - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+binaries:
+  - name: kind
+    url: https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
+  - name: metalctl
+    url: https://github.com/metal-stack/metalctl/releases/latest/download/metalctl-linux-amd64
+  - name: cloudctl
+    url: https://github.com/fi-ts/cloudctl/releases/latest/download/cloudctl-linux-amd64
+  - name: stern
+    url: https://github.com/wercker/stern/releases/latest/download/stern_linux_amd64
+  - name: mc
+    url: https://dl.min.io/client/mc/release/linux-amd64/mc
+  - name: jq
+    url: https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+  - name: yq
+    url: https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64

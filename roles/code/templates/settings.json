@@ -1,0 +1,19 @@
+{
+    "files.trimTrailingWhitespace": true,
+    "go.lintTool": "golangci-lint",
+	"[yaml]":  {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"editor.autoIndent": "none"
+    },
+    "go.alternateTools": {
+        "go": "/snap/go/current/bin/go"
+    },
+    "go.useLanguageServer": true,
+    "explorer.confirmDragAndDrop": false,
+    "files.maxMemoryForLargeFilesMB": 8192,
+    "go.toolsManagement.autoUpdate": true,
+    "go.buildTags": "integration",
+    "ansibleVault.executable": "/home/gerrit/git/github.com/metal-stack/ansible-common/venv/bin/ansible-vault",
+    "ansibleVault.keyfile": "/home/gerrit/.vault.txt"
+}

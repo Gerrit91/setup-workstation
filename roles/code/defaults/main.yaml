@@ -1,0 +1,17 @@
+---
+code_extensions:
+  - bierner.markdown-emoji
+  - darkriszty.markdown-table-prettify
+  - dhoeric.ansible-vault
+  - eamodio.gitlens
+  - golang.go
+  - hediet.vscode-drawio
+  - huntertran.auto-markdown-toc
+  - jdforsythe.add-new-line-to-files
+  - ms-azuretools.vscode-docker
+  - ms-vscode-remote.remote-containers
+  - Perkovec.emoji
+  - peterj.proto
+  - TakumiI.markdowntable
+  - tsandall.opa
+  - wholroyd.jinja

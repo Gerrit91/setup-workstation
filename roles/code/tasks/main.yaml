@@ -1,0 +1,24 @@
+---
+- name: Check that vscode is installed
+  command: which code
+  changed_when: no
+
+- name: List extensions
+  command: code --list-extensions
+  register: result
+  changed_when: no
+
+- name: Install extensions
+  command: code --install-extension {{ item }}
+  when: item not in result.stdout
+  loop: "{{ code_extensions }}"
+
+- name: Create config dir
+  file:
+    path: "~/.config/Code/User"
+    state: directory
+
+- name: Put settings.json
+  template:
+    src: settings.json
+    dest: "~/.config/Code/User/settings.json"
