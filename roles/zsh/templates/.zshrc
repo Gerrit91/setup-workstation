@@ -5,11 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#
-# Ansible managed
-#
-
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -80,7 +75,8 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-completions)
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,7 +110,13 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-alias watch='watch '
+export TERM=xterm-256color
+
+swagger-ui() {
+  docker run --rm -p 9090:8080 -e API_URL=$1 swaggerapi/swagger-ui
+}
+
+alias watch='watch -c '
 alias k='kubectl'
 alias m='metalctl'
 alias c='cloudctl'

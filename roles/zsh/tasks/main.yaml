@@ -18,10 +18,19 @@
 - import_role:
     name: gantsign.oh-my-zsh
   vars:
+    oh_my_zsh_plugins:
+      - git
+      - zsh-completions
     users:
       - username: "{{ ansible_user_id }}"
 
-- name: Clone powerlevel10k theme
+- name: Clone zsh-completions
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-completions
+    dest: "~/.oh-my-zsh/plugins/zsh-completions"
+    depth: 1
+
+- name: Clone powerlevel10k
   ansible.builtin.git:
     repo: https://github.com/romkatv/powerlevel10k.git
     dest: "~/powerlevel10k"

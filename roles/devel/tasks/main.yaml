@@ -1,0 +1,29 @@
+---
+- name: Symlinks for devel
+  become: true
+  ansible.builtin.file:
+    src: "{{ item.to }}"
+    dest: "{{ item.from }}"
+    state: link
+    mode: '0755'
+    force: yes
+  loop:
+    - from: /usr/local/bin/cloudctl
+      to: "{{ ansible_env.HOME }}/git/github.com/fi-ts/cloudctl/bin/cloudctl"
+    - from: /usr/local/bin/metalctl
+      to: "{{ ansible_env.HOME }}/git/github.com/metal-stack/metalctl/bin/metalctl"
+
+- name: Symlinks for devel
+  ansible.builtin.file:
+    src: "{{ item.to }}"
+    dest: "{{ item.from }}"
+    state: link
+    mode: '0755'
+    force: yes
+  loop:
+    - from: "~/.ansible/roles/metal-ansible-modules"
+      to: "~/git/github.com/metal-stack/metal-ansible-modules"
+    - from: "~/.ansible/roles/ansible-common"
+      to: "~/git/github.com/metal-stack/ansible-common"
+    - from: "~/.ansible/roles/metal-extensions-roles"
+      to: "~/git/git.f-i-ts.de/cloud-native/metal/metal-extensions-roles"

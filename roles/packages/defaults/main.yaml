@@ -5,6 +5,8 @@ packages:
   - curl
   - dconf-editor
   - git
+  - gnome-shell-extensions
+  - gnome-tweaks
   - libvirt-daemon
   - libvirt-dev
   - ovmf
@@ -22,10 +24,6 @@ debian_packages:
 binaries:
   - name: kind
     url: https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
-  - name: metalctl
-    url: https://github.com/metal-stack/metalctl/releases/latest/download/metalctl-linux-amd64
-  - name: cloudctl
-    url: https://github.com/fi-ts/cloudctl/releases/latest/download/cloudctl-linux-amd64
   - name: stern
     url: https://github.com/wercker/stern/releases/latest/download/stern_linux_amd64
   - name: mc
@@ -34,3 +32,9 @@ binaries:
     url: https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
   - name: yq
     url: https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+
+  # these will be symlinked to local git repos:
+  # - name: metalctl
+  #   url: https://github.com/metal-stack/metalctl/releases/latest/download/metalctl-linux-amd64
+  # - name: cloudctl
+  #   url: https://github.com/fi-ts/cloudctl/releases/latest/download/cloudctl-linux-amd64

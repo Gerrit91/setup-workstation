@@ -17,3 +17,5 @@
     tags: code
   - name: zsh
     tags: zsh
+  - name: devel
+    tags: devel
