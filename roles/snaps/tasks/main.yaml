@@ -1,8 +1,0 @@
----
-- name: Install snaps
-  become: yes
-  community.general.snap:
-    name: "{{ item.name }}"
-    classic: "{{ item.classic | default(omit) }}"
-    channel: "{{ item.channel | default(omit) }}"
-  loop: "{{ snaps }}"

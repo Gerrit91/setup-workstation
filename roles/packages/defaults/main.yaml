@@ -7,6 +7,8 @@ packages:
   - git
   - gnome-shell-extensions
   - gnome-tweaks
+  - htop
+  - iftop
   - libvirt-daemon
   - libvirt-dev
   - ovmf
@@ -38,3 +40,22 @@ binaries:
   #   url: https://github.com/metal-stack/metalctl/releases/latest/download/metalctl-linux-amd64
   # - name: cloudctl
   #   url: https://github.com/fi-ts/cloudctl/releases/latest/download/cloudctl-linux-amd64
+
+snaps:
+  - name: chromium
+    channel: latest/edge
+  - name: chromium-ffmpeg
+  - name: code
+  - name: gitkraken
+    classic: yes
+  - name: go
+    classic: yes
+  - name: inkscape
+    classic: yes
+  - name: keepassxc
+  - name: kubectl
+    classic: yes
+  - name: pycharm-community
+    classic: yes
+  - name: simplenote
+  - name: vlc

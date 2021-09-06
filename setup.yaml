@@ -11,8 +11,6 @@
     vars:
       docker_users:
         - "{{ ansible_user_id }}"
-  - name: snaps
-    tags: snaps
   - name: code
     tags: code
   - name: zsh
