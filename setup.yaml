@@ -3,17 +3,17 @@
   hosts: localhost
   connection: local
   roles:
-  - name: packages
-    tags: packages
+  - name: common-packages
+    tags: common-packages
   - name: geerlingguy.docker
     tags: docker
     become: true
     vars:
       docker_users:
         - "{{ ansible_user_id }}"
-  - name: code
-    tags: code
   - name: zsh
     tags: zsh
+  - name: apps
+    tags: apps
   - name: devel
     tags: devel

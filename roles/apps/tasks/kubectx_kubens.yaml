@@ -1,0 +1,30 @@
+---
+- name: Download {{ item.name }}
+  become: yes
+  ansible.builtin.unarchive:
+    src: "{{ item.url }}"
+    dest: /usr/local/bin
+    remote_src: yes
+    mode: '0755'
+    include:
+      - "{{ item.name }}"
+
+- name: Ensure {{ item.name }} completion directory
+  become: true
+  file:
+    path: "/opt/{{ item.name }}/completion/"
+    state: directory
+
+- name: Download {{ item.name }} completion scripts
+  become: true
+  get_url:
+    url: "{{ item.completion_url }}"
+    dest: "/opt/{{ item.name }}/completion/{{ item.name }}.zsh"
+    mode: '0644'
+
+- name: Symlink {{ item.name }} completion scripts
+  file:
+    src: /opt/{{ item.name }}/completion/{{ item.name }}.zsh
+    dest: ~/.oh-my-zsh/completions/_{{ item.name }}.zsh
+    state: link
+

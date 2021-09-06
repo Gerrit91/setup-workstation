@@ -30,6 +30,11 @@
     dest: "~/.oh-my-zsh/plugins/zsh-completions"
     depth: 1
 
+- name: Ensure auto completion folder
+  file:
+    path: "~/.oh-my-zsh/completions/"
+    state: directory
+
 - name: Clone powerlevel10k
   ansible.builtin.git:
     repo: https://github.com/romkatv/powerlevel10k.git

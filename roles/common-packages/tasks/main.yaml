@@ -1,0 +1,29 @@
+---
+- name: Install os packages
+  become: yes
+  ansible.builtin.package:
+    name: "{{ packages }}"
+
+- name: Install debian packages
+  become: yes
+  apt:
+    deb: "{{ item }}"
+    autoclean: yes
+    autoremove: yes
+  loop: "{{ debian_packages }}"
+
+- name: Install snaps
+  become: yes
+  community.general.snap:
+    name: "{{ item.name }}"
+    classic: "{{ item.classic | default(omit) }}"
+    channel: "{{ item.channel | default(omit) }}"
+  loop: "{{ snaps }}"
+
+- name: Install binaries
+  become: yes
+  get_url:
+    url: "{{ item.url }}"
+    dest: /usr/local/bin/{{ item.name }}
+    mode: '0755'
+  loop: "{{ binaries }}"

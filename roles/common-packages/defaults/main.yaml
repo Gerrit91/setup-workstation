@@ -34,7 +34,6 @@ binaries:
     url: https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
   - name: yq
     url: https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
-
   # these will be symlinked to local git repos:
   # - name: metalctl
   #   url: https://github.com/metal-stack/metalctl/releases/latest/download/metalctl-linux-amd64
@@ -45,10 +44,11 @@ snaps:
   - name: chromium
     channel: latest/edge
   - name: chromium-ffmpeg
-  - name: code
   - name: gitkraken
     classic: yes
   - name: go
+    classic: yes
+  - name: helm
     classic: yes
   - name: inkscape
     classic: yes

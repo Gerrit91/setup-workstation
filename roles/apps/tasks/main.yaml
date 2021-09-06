@@ -1,0 +1,29 @@
+---
+- name: Install kubectx and kubens
+  include_tasks: kubectx_kubens.yaml
+  loop:
+  - name: kubectx
+    url: https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubectx_v0.9.4_linux_x86_64.tar.gz
+    completion_url: https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubectx.zsh
+  - name: kubens
+    url: https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubens_v0.9.4_linux_x86_64.tar.gz
+    completion_url: https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubens.zsh
+  tags:
+  - kubens
+  - kubectx
+
+- name: Install golangci-lint
+  import_tasks: golangci_lint.yaml
+  tags: golangci-lint
+
+- name: Install vscode
+  import_tasks: code.yaml
+  tags: code
+
+- name: Install krew
+  import_tasks: krew.yaml
+  tags: krew
+
+- name: Install gcloud
+  import_tasks: gcloud.yaml
+  tags: gcloud

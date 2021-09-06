@@ -76,9 +76,10 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-completions)
-autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
+
+autoload -U compinit && compinit
 
 # User configuration
 
@@ -124,7 +125,6 @@ alias c='cloudctl'
 source <(stern --completion=zsh)
 source <(kubectl completion zsh)
 
-mkdir -p $ZSH/completions
 echo -e '#compdef _cloudctl cloudctl\n. <(cloudctl completion zsh)' > $ZSH/completions/_cloudctl
 echo -e '#compdef _metalctl metalctl\n. <(metalctl completion zsh)' > $ZSH/completions/_metalctl
 

@@ -1,7 +1,8 @@
 ---
-- name: Check that vscode is installed
-  command: which code
-  changed_when: no
+- name: Install code
+  become: yes
+  community.general.snap:
+    name: code
 
 - name: List extensions
   command: code --list-extensions
