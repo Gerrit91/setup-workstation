@@ -15,5 +15,6 @@
     "go.toolsManagement.autoUpdate": true,
     "go.buildTags": "integration",
     "ansibleVault.executable": "/home/gerrit/git/github.com/metal-stack/ansible-common/venv/bin/ansible-vault",
-    "ansibleVault.keyfile": "/home/gerrit/.vault.txt"
+    "ansibleVault.keyfile": "/home/gerrit/.vault.txt",
+    "editor.bracketPairColorization.enabled": true
 }

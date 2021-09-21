@@ -9,6 +9,7 @@ packages:
   - gnome-tweaks
   - htop
   - iftop
+  - ipmitool
   - libvirt-daemon
   - libvirt-dev
   - ovmf
@@ -19,6 +20,7 @@ packages:
   - virtinst
   - virt-manager
   - wget
+  - wireguard
 
 debian_packages:
   - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb

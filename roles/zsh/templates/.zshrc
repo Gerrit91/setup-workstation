@@ -112,15 +112,38 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export TERM=xterm-256color
+export COMMONDIR=~/git/github.com/metal-stack/builder
+export PATH="${PATH}:${HOME}/.krew/bin:${HOME}/go/bin"
 
 swagger-ui() {
   docker run --rm -p 9090:8080 -e API_URL=$1 swaggerapi/swagger-ui
+}
+
+mct() {
+  cd /home/gerrit/git/git.f-i-ts.de/cloud-native/metal/metal-deployment/control-plane
+  export KUBECONFIG=~/.cloudctl/test_kubeconfig.yaml
+  metalctl context dev
+  cloudctl context dev
+  gcloud config configurations activate test
+}
+
+mcp() {
+  cd /home/gerrit/git/git.f-i-ts.de/cloud-native/metal/metal-deployment/control-plane
+  export KUBECONFIG=~/.cloudctl/prod_kubeconfig.yaml
+  metalctl context prod
+  cloudctl context prod
+  gcloud config configurations activate prod
+}
+
+kc() {
+  export KUBECONFIG=$(readlink -f "$1")
 }
 
 alias watch='watch -c '
 alias k='kubectl'
 alias m='metalctl'
 alias c='cloudctl'
+alias ansible-common-venv='. /home/gerrit/git/github.com/metal-stack/ansible-common/venv/bin/activate'
 
 source <(stern --completion=zsh)
 source <(kubectl completion zsh)
@@ -131,19 +154,4 @@ echo -e '#compdef _metalctl metalctl\n. <(metalctl completion zsh)' > $ZSH/compl
 complete -F __start_kubectl k
 complete -F __start_metalctl m
 complete -F __start_cloudctl c
-
 complete -C /usr/local/bin/mc mc
-
-export PATH="${PATH}:${HOME}/.krew/bin:${HOME}/go/bin"
-
-mcp() {
-  cd /home/gerrit/git/git.f-i-ts.de/cloud-native/metal/metal-deployment/control-plane
-  export KUBECONFIG=.kubeconfig
-}
-
-kc() {
-  export KUBECONFIG=$(readlink -f "$1")
-}
-
-alias ansible-common-venv='. /home/gerrit/git/github.com/metal-stack/ansible-common/venv/bin/activate'
-export COMMONDIR=~/git/github.com/metal-stack/builder

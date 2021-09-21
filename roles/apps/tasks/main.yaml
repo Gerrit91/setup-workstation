@@ -12,6 +12,10 @@
   - kubens
   - kubectx
 
+- name: Install git-lfs
+  import_tasks: git_lfs.yaml
+  tags: git-lfs
+
 - name: Install golangci-lint
   import_tasks: golangci_lint.yaml
   tags: golangci-lint
