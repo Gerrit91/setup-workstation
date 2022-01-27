@@ -1,4 +1,11 @@
 ---
+install_list:
+- kubectx-kubens
+- golangci-lint
+- code
+- krew
+- gcloud
+
 code_extensions:
   - bierner.markdown-emoji
   - darkriszty.markdown-table-prettify

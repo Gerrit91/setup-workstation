@@ -5,6 +5,16 @@ Helps speeding up my workstation setup by running `~/setup.sh`.
 ## Still TODO
 
 - Install Chrome / Chromium extensions (it's hard)
+  - Chrome Plugins
+  - Citrix
+  - Keepass 
+  - EditThisCookie
+  - Backspace to go Back 
+  - JSON Formatter
+  - uBlock Origin
+  - Click to Remove Element
+  - Auto-Group Tabs 
+  - GNOME Shell integration
 - Set system defaults
   - Dark theme
   - Dock auto-hide + bottom

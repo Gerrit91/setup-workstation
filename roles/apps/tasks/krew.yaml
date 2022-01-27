@@ -15,5 +15,9 @@
   command: kubectl krew install {{ item }}
   loop:
     - get-all
+    - node-shell
+    - neat
+    - tree
+    - advise-psp
   environment:
     PATH: "{{ ansible_env.HOME }}/.krew/bin:{{ ansible_env.HOME }}/go/bin:{{ ansible_env.PATH }}"

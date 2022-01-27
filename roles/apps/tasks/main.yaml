@@ -1,6 +1,7 @@
 ---
 - name: Install kubectx and kubens
   include_tasks: kubectx_kubens.yaml
+  when: '"kubectx-kubens" in install_list'
   loop:
   - name: kubectx
     url: https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubectx_v0.9.4_linux_x86_64.tar.gz
@@ -18,16 +19,20 @@
 
 - name: Install golangci-lint
   import_tasks: golangci_lint.yaml
+  when: '"golangci-lint" in install_list'
   tags: golangci-lint
 
 - name: Install vscode
   import_tasks: code.yaml
+  when: '"code" in install_list'
   tags: code
 
 - name: Install krew
   import_tasks: krew.yaml
+  when: '"krew" in install_list'
   tags: krew
 
 - name: Install gcloud
   import_tasks: gcloud.yaml
+  when: '"gcloud" in install_list'
   tags: gcloud
