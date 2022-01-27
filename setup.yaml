@@ -11,6 +11,13 @@
     vars:
       docker_users:
         - "{{ ansible_user_id }}"
+  - name: gantsign.oh-my-zsh
+    vars:
+      oh_my_zsh_plugins:
+        - git
+        - zsh-completions
+      users:
+        - username: "{{ ansible_user_id }}"
   - name: zsh
     tags: zsh
   - name: apps
