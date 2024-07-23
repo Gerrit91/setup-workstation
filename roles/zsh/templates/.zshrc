@@ -155,3 +155,6 @@ complete -F __start_kubectl k
 complete -F __start_metalctl m
 complete -F __start_cloudctl c
 complete -C /usr/local/bin/mc mc
+
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
